@@ -1,3 +1,4 @@
+
 % Clear variables and close figures
 clear all
 close all
@@ -7,14 +8,14 @@ load basisData.mat % Loads X and y
 [n,d] = size(X);
 
 % Split training data into a training and a validation set randomly
-perm_indices = randperm(n);
-indices0 = perm_indices(1:n/2);
-indices1 = perm_indices(n/2+1:end);
+random_indices = randperm(n);
+indicesTrain = random_indices(1:n/2);
+indicesTest = random_indices(n/2+1:end);
  
-Xtrain = X(indices0,:);
-ytrain = y(indices0,:);
-Xvalid = X(indices1,:);
-yvalid = y(indices1,:);
+Xtrain = X(indicesTrain,:);
+ytrain = y(indicesTrain,:);
+Xvalid = X(indicesTest,:);
+yvalid = y(indicesTest,:);
 
 % Split training data into a training and a validation set
 %Xtrain = X(1:n/2,:);
